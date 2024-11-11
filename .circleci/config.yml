@@ -7,12 +7,20 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Placeholder Step
-          command: echo "Pipeline initialized without application code."
+          name: Install Depencancies 
+          command: npm install
       - run:
-          name: Dummy SonarQube Scan
+          name: Run SonarQube Scan
           command: |
-            echo "Running SonarQube scan on placeholder"
+           export SONAR_TOKEN=$d16a87a5ad763c3fb30b01eba86879dea2a6e9da
+            sonar-scanner \
+              -Dsonar.projectKey=YourProjectKey \
+              -Dsonar.sources=. \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.organization=PraneVanmali \
+              -Dsonar.login=$d16a87a5ad763c3fb30b01eba86879dea2a6e9da
+
+           
             # Add sonar-scanner configuration here once the application code is added
 
 workflows:
