@@ -1,1 +1,23 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Placeholder Step
+          command: echo "Pipeline initialized without application code."
+      - run:
+          name: Dummy SonarQube Scan
+          command: |
+            echo "Running SonarQube scan on placeholder"
+            # Add sonar-scanner configuration here once the application code is added
+
+workflows:
+  version: 2
+  build-and-scan:
+    jobs:
+      - build
 
